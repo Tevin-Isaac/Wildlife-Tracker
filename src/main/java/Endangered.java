@@ -1,14 +1,11 @@
-import org.sql2o.*;
-import java.util.List;
-import java.util.ArrayList;
-import java.sql.Timestamp;
+import org.sql2o.Connection;
 // endangered animal extends animal but with new attributes age and health
 
 public class Endangered extends Animal {
 
-    public String health;
-    public String age;
-    public static final String ANIMAL_TYPE = "Endangered";
+    private String health;
+    private String age;
+    private static final String ANIMAL_TYPE = "Endangered";
 
     // constructor with animal attributes and new attributes for endangered animal
     public Endangered(String name, String health, String age) {

@@ -1,9 +1,9 @@
-import org.sql2o.*;
-import org.junit.*;
-import java.sql.Timestamp;
-import java.util.Date;
-import java.text.DateFormat;
-import static org.junit.Assert.*;
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class SightingTest{
 
@@ -11,12 +11,15 @@ public class SightingTest{
     public DatabaseRule database = new DatabaseRule();
 
     private Sighting testSighting;
-    private Animal  testAnimal;
+
+    public SightingTest(Animal testAnimal) {
+    }
+
     @Before
     public void setUp() {
 
 
-        testSighting = new Sighting(1, "Zone A", "Ronald");
+        testSighting = new Sighting(1, "kifaru", "Tevin");
     }
 
 
@@ -52,7 +55,7 @@ public class SightingTest{
     @Test
     public void equals_returnsTrueIfAllPropertiesAreTheSame() {
         Sighting anotherSighting = new Sighting(1, "Zone A", "Ronald");
-        assertEquals(true, testSighting.equals(anotherSighting));
+        assertEquals(testSighting, anotherSighting);
     }
 
     @Test
@@ -65,7 +68,7 @@ public class SightingTest{
     @Test
     public void save_insertsObjectIntoDatabase() {
         testSighting.save();
-        assertTrue(Sighting.all().get(0).equals(testSighting));
+        assertEquals(Sighting.all().get(0), testSighting);
     }
 
     @Test

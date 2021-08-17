@@ -1,9 +1,9 @@
-import java.sql.Timestamp;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
+
+import java.util.HashMap;
+import java.util.Map;
+
 import static spark.Spark.*;
 
 
@@ -15,7 +15,7 @@ public class App {
 
 
         ProcessBuilder process = new ProcessBuilder();
-        Integer port;
+        int port;
         if (process.environment().get("PORT") != null) {
             port = Integer.parseInt(process.environment().get("PORT"));
         } else {
@@ -101,7 +101,7 @@ public class App {
 
 
             try {
-                Sighting sighting = new Sighting(animal_id, location, ranger_name);
+                new Sighting(animal_id, location, ranger_name);
             } catch (IllegalArgumentException exception) {
                 System.out.println("Please enter Ranger name.");
             }
@@ -175,6 +175,7 @@ public class App {
             String location = request.queryParams("location");
             String rangerName = request.queryParams("rangerName");
             Sighting sighting = Sighting.find(id);
+            assert sighting != null;
             sighting.setLocation(location);
             sighting.setRangerName(rangerName);
             sighting.update();

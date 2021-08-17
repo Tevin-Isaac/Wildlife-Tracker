@@ -1,8 +1,9 @@
-import org.junit.*;
-import static org.junit.Assert.*;
-import org.sql2o.*;
-import java.util.ArrayList;
-import java.util.List;
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 
 public class AnimalTest{
@@ -54,7 +55,7 @@ public class AnimalTest{
     @Test
     public void equals_returnsTrueIfNamesAreTheSame() {
         Animal anotherAnimal = new Animal("Monkey");
-        assertTrue(testAnimal.equals(anotherAnimal));
+        assertEquals(testAnimal, anotherAnimal);
     }
 
     @Test
@@ -67,7 +68,7 @@ public class AnimalTest{
     @Test
     public void save_insertsObjectIntoDatabase() {
         testAnimal.save();
-        assertTrue(Animal.all().get(0).equals(testAnimal));
+        assertEquals(Animal.all().get(0), testAnimal);
     }
 
     @Test
@@ -75,8 +76,8 @@ public class AnimalTest{
         testAnimal.save();
         Animal otherAnimal = new Animal("Deer");;
         otherAnimal.save();
-        assertEquals(true, Animal.all().get(0).equals(testAnimal));
-        assertEquals(true, Animal.all().get(1).equals(otherAnimal));
+        assertEquals(Animal.all().get(0), testAnimal);
+        assertEquals(Animal.all().get(1), otherAnimal);
     }
 
     @Test

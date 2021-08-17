@@ -1,14 +1,13 @@
-import org.sql2o.*;
+import org.sql2o.Connection;
+
 import java.util.List;
-import java.util.ArrayList;
-import java.sql.Timestamp;
 
 public class Animal {
     public int id;
-    public String name;
+    String name;
     public String type;
     //creating animal with constant non endangered
-    public static final String ANIMAL_TYPE = "Non-endangered";
+    private static final String ANIMAL_TYPE = "Non-endangered";
 
     public Animal(String name){
         if (name.equals("")){
@@ -33,7 +32,7 @@ public class Animal {
         return type;
     }
     // setting animal name
-    public void setName(String name) {
+    void setName(String name) {
         this.name = name;
     }
 

@@ -1,7 +1,6 @@
+import org.sql2o.Connection;
+
 import java.sql.Timestamp;
-
-import org.sql2o.*;
-
 import java.util.List;
 
 
@@ -47,11 +46,11 @@ public class Sighting implements DatabaseManagement {
     }
 
     //set methods for Sightings
-    public void setLocation(String location) {
+    void setLocation(String location) {
         this.location = location;
     }
 
-    public void setRangerName(String rangerName) {
+    void setRangerName(String rangerName) {
         this.ranger_name = rangerName;
     }
 
@@ -106,10 +105,9 @@ public class Sighting implements DatabaseManagement {
     public static Sighting find(int id) {
         try(Connection con = DB.sql2o.open()) {
             String sql = "SELECT * FROM sightings WHERE id=:id;";
-            Sighting sighting = con.createQuery(sql)
+            return con.createQuery(sql)
                     .addParameter("id", id)
                     .executeAndFetchFirst(Sighting.class);
-            return sighting;
         } catch (IndexOutOfBoundsException exception) {
             return null;
         }
@@ -126,7 +124,7 @@ public class Sighting implements DatabaseManagement {
     }
 
     //update the Sightings table && throwing an exception incase the id is not mapped
-    public void update() {
+    void update() {
         String sql = "UPDATE sightings SET location = :location, ranger_name = :ranger_name WHERE id = :id";
 
         try(Connection con = DB.sql2o.open()) {

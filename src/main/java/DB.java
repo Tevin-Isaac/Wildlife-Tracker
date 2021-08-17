@@ -3,12 +3,12 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 public class DB {
-    private static URI dbUri;
     public static Sql2o sql2o;
 
     static {
 
         try {
+            URI dbUri;
             if (System.getenv("DATABASE_URL") == null) {
                 dbUri = new URI("postgres://localhost:5432/wildlife_tracker");
             } else {
@@ -22,7 +22,7 @@ public class DB {
             String password = (dbUri.getUserInfo() == null) ? "pw*0711937973" : dbUri.getUserInfo().split(":")[1];
 
             sql2o = new Sql2o("jdbc:postgresql://" + host + ":" + port + path, username, password);
-        } catch (URISyntaxException e ) {
+        } catch (URISyntaxException ignored) {
         }
     }
 }
