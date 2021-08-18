@@ -3,6 +3,7 @@ import spark.template.velocity.VelocityTemplateEngine;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 import static spark.Spark.*;
 
@@ -193,7 +194,7 @@ public class App {
         //deleting a sighting
         get("/sightings/:id/delete", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
-            Sighting.find(Integer.parseInt(request.params(":id"))).delete();
+            Objects.requireNonNull(Sighting.find(Integer.parseInt(request.params(":id")))).delete();
             response.redirect("/sightings");
             return new ModelAndView(model, layout);
         }, new VelocityTemplateEngine());
