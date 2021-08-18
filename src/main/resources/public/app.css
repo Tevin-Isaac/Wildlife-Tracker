@@ -1,6 +1,7 @@
-
 html,
-body,
+body{
+    background-image: url(https://images.wallpaperscraft.com/image/tiger_graffiti_street_art_137823_1920x1080.jpg);
+}
 header,
 .view {
   height: 100%;
@@ -29,26 +30,7 @@ header,
   }
 
 }
-@media (max-width: 575px) { .navbar:not(.top-nav-collapse) {
-                             background: #78909c !important;
-                             html,
-                               body,
-                               header,
-                               .view {
-                                 height: 100vh;
-                               }
-                          } }
 
-
-@media (max-width: 767px) { .navbar:not(.top-nav-collapse) {
-                             background: #78909c !important;
-                             html,
-                               body,
-                               header,
-                               .view {
-                                 height: 100vh;
-                               }
-                          } }
 h1 {
   letter-spacing: 8px;
 }
@@ -70,9 +52,7 @@ h5 {
 padding-bottom:20px;
 text-align:center;
 }
-.card{
- background-color:rgba(0,0,0,0.4);
-}
+
 .transparentInputFields{
  background-color:rgba(0,0,0,0.4);
 }
@@ -86,3 +66,50 @@ margin:auto;
 padding-top:20px;
 
 }
+
+.container {
+    display: flex;
+    width: 90vw;
+  }
+  
+  .panel {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 80vh;
+    border-radius: 50px;
+    color: #fff;
+    cursor: pointer;
+    flex: 0.5;
+    margin: 10px;
+    position: relative;
+    transition: flex 0.7s ease-in;
+  }
+  
+  .panel h3 {
+    font-size: 20px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    margin: 0;
+    opacity: 0;
+  }
+  
+  .panel.active {
+    flex: 5;
+  }
+  
+  .panel.active h3 {
+    opacity: 1;
+    transition: opacity .3s ease-in 0.5s;
+  }
+  
+  @media(max-width: 480px) {
+    .container {
+      width: 100vw;
+    }
+    
+    .panel:nth-of-type(4), .panel:nth-of-type(5) {
+      display: none;
+    }
+  }
