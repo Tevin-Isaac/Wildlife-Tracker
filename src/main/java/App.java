@@ -125,7 +125,7 @@ public class App {
             model.put("animal", Animal.find(Integer.parseInt(request.params(":id"))));
             model.put("endangered", Endangered.find(Integer.parseInt(request.params(":id"))));
             model.put("Sighting", Sighting.class);
-            model.put("template", "templates/animal.vtl");
+            model.put("template", "templates/animals.vtl");
             return new ModelAndView(model, layout);
         }, new VelocityTemplateEngine());
 
@@ -165,7 +165,7 @@ public class App {
             Map<String, Object> model = new HashMap<String, Object>();
             model.put("sighting", Sighting.find(Integer.parseInt(request.params(":id"))));
             model.put("Animal", Animal.class);
-            model.put("template", "templates/SightingForm.vtl");
+            model.put("template", "templates/SightingEditForm.vtl");
             return new ModelAndView(model, layout);
         }, new VelocityTemplateEngine());
 
