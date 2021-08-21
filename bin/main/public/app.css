@@ -94,8 +94,9 @@ padding-top:20px;
   cursor: pointer;
   user-select: none;
   
-  :last-child { margin-bottom: 0; }
+ 
 }
+
 
 .card--next { 
   z-index: 5; 
@@ -128,7 +129,6 @@ padding-top:20px;
 
 
 
-////////////////////////////////////////
 
 h1 { margin: 0; }
 html, body { height: 100%; }
