@@ -23,6 +23,7 @@ Velocity
 Postgres
 PSQL
 Heroku
+Roff
 
 ## Installation
 * `git clone <https://github.com/Tevin-creator>` this repository
@@ -38,7 +39,6 @@ CREATE TABLE endangered_animals (id serial PRIMARY KEY, name varchar, health var
 CREATE TABLE sightings (id serial PRIMARY KEY, animal_id int, location varchar, ranger_name varchar, date TIMESTAMP);
 CREATE DATABASE wildlife_tracker_test WITH TEMPLATE wildlife_tracker;
 
-```
 ## User Requirements
 The applications allow users to do the following:
 1.Add a new animal
@@ -48,4 +48,4 @@ The applications allow users to do the following:
 ## known Bugs
 Null so far.
 
-Tevin Isaac(c)copyright
+Tevin Isaac(c)copyright.
