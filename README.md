@@ -46,6 +46,7 @@ The applications allow users to do the following:
 3.Add an animal Sighting
 
 ## known Bugs
-Null so far.
+1.Transperent Input field may sometimes be unclickable or take a while to load in Sighting form and endangered animals form.
+2.To view the forms always  scroll down.
 
 Tevin Isaac(c)copyright.
