@@ -55,7 +55,7 @@ public class AnimalTest{
     @Test
     public void equals_returnsTrueIfNamesAreTheSame() {
         Animal anotherAnimal = new Animal("Monkey");
-        assertEquals(testAnimal, anotherAnimal);
+        assertTrue(testAnimal.equals(anotherAnimal));
     }
 
     @Test
@@ -68,7 +68,7 @@ public class AnimalTest{
     @Test
     public void save_insertsObjectIntoDatabase() {
         testAnimal.save();
-        assertEquals(Animal.all().get(0), testAnimal);
+        assertTrue(Animal.all().get(0).equals(testAnimal));
     }
 
     @Test
@@ -76,8 +76,8 @@ public class AnimalTest{
         testAnimal.save();
         Animal otherAnimal = new Animal("Deer");;
         otherAnimal.save();
-        assertEquals(Animal.all().get(0), testAnimal);
-        assertEquals(Animal.all().get(1), otherAnimal);
+        assertEquals(true, Animal.all().get(0).equals(testAnimal));
+        assertEquals(true, Animal.all().get(1).equals(otherAnimal));
     }
 
     @Test

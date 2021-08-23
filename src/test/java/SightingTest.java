@@ -11,15 +11,12 @@ public class SightingTest{
     public DatabaseRule database = new DatabaseRule();
 
     private Sighting testSighting;
-
-    public SightingTest(Animal testAnimal) {
-    }
-
+    private Animal  testAnimal;
     @Before
     public void setUp() {
 
 
-        testSighting = new Sighting(1, "kifaru", "Tevin");
+        testSighting = new Sighting(1, "Zone A", "Ronald");
     }
 
 
@@ -55,7 +52,7 @@ public class SightingTest{
     @Test
     public void equals_returnsTrueIfAllPropertiesAreTheSame() {
         Sighting anotherSighting = new Sighting(1, "Zone A", "Ronald");
-        assertEquals(testSighting, anotherSighting);
+        assertEquals(true, testSighting.equals(anotherSighting));
     }
 
     @Test
@@ -68,7 +65,7 @@ public class SightingTest{
     @Test
     public void save_insertsObjectIntoDatabase() {
         testSighting.save();
-        assertEquals(Sighting.all().get(0), testSighting);
+        assertTrue(Sighting.all().get(0).equals(testSighting));
     }
 
     @Test
@@ -76,8 +73,8 @@ public class SightingTest{
         testSighting.save();
         Sighting otherSighting = new Sighting(1, "Zone B",  "Baraka");
         otherSighting.save();
-        assertEquals(true, Sighting.all().get(0).equals(testSighting));
-        assertEquals(true, Sighting.all().get(1).equals(otherSighting));
+        assertEquals(Sighting.all().get(0), testSighting);
+        assertEquals(Sighting.all().get(1), otherSighting);
     }
 
     @Test
