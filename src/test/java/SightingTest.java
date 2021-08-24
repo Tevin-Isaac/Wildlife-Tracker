@@ -35,7 +35,7 @@ public class SightingTest{
 //    public void getLocation_sightingInstantiatesWithLocation(){
 //        testSighting.save();
 //        assertEquals("Zone A", testSighting.getLocation());
-//    }
+//    }git commit -am "make it better"
 //
 //    @Test
 //    public void getRangerName_sightingInstantiatesWithRangerName(){
