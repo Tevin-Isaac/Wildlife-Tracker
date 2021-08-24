@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.tracker</groupId>
-    <artifactId>wildlifekenya</artifactId>
+    <artifactId>wildlifefever</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>
@@ -102,7 +102,7 @@
                 <artifactId>heroku-maven-plugin</artifactId>
                 <configuration>
                     <processTypes>
-                        <web>java -jar target/wildlifekenya-1.0-jar-with-dependencies.jar</web>
+                        <web>java -jar target/wildlifefever-1.0-jar-with-dependencies.jar</web>
                     </processTypes>
                 </configuration>
             </plugin>

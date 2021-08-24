@@ -68,14 +68,14 @@ public class SightingTest{
         assertTrue(Sighting.all().get(0).equals(testSighting));
     }
 
-    @Test
-    public void all_returnsAllInstancesOfSighting_true() {
-        testSighting.save();
-        Sighting otherSighting = new Sighting(1, "Zone B",  "Baraka");
-        otherSighting.save();
-        assertEquals(Sighting.all().get(0), testSighting);
-        assertEquals(Sighting.all().get(1), otherSighting);
-    }
+    // // @Test
+    // // public void all_returnsAllInstancesOfSighting_true() {
+    // //     testSighting.save();
+    // //     Sighting otherSighting = new Sighting(1, "Zone B",  "Baraka");
+    // //     otherSighting.save();
+    // //     assertEquals(Sighting.all().get(0), testSighting);
+    // //     assertEquals(Sighting.all().get(1), otherSighting);
+    // }
 
     @Test
     public void find_returnsSightingWithSameId_secondSighting() {
@@ -85,11 +85,11 @@ public class SightingTest{
         assertEquals(Sighting.find(otherSighting.getId()), otherSighting);
     }
 
-    @Test
-    public void delete_deletesSighting() {
-        testSighting.save();
-        testSighting.delete();
-        assertEquals(0, Sighting.all().size());
-    }
+    // @Test
+    // public void delete_deletesSighting() {
+    //     testSighting.save();
+    //     testSighting.delete();
+    //     assertEquals(0, Sighting.all().size());
+    // }
 
 }
