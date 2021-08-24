@@ -97,19 +97,13 @@
                     </archive>
                 </configuration>
             </plugin>
+        
             <plugin>
                 <groupId>com.heroku.sdk</groupId>
                 <artifactId>heroku-maven-plugin</artifactId>
                 <version>3.0.3</version>
                 <configuration>
-                  <appName>wildlifefever</appName>
-                </configuration>
-              </plugin>
-            <plugin>
-                <groupId>com.heroku.sdk</groupId>
-                <artifactId>heroku-maven-plugin</artifactId>
-                <version>3.0.3</version>
-                <configuration>
+                    <appName>wildlifefever</appName>
                     <processTypes>
                         <web>java -jar target/wildlifefever-1.0-SNAPSHOT-jar-with-dependencies.jar</web>
                     </processTypes>
